@@ -1,0 +1,122 @@
+body {
+
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #F8FAFC 20%,#D9EAFD 30%,#4760d0 80%);
+  background-size: 100%, 100%;
+  height:100vh;
+}
+
+header h1{
+  font-family: "Afacad Flux", sans-serif;
+  color:#4760d0;
+  font-size: 50px;
+  position:absolute;
+  top:-40px;
+}
+
+header h2{
+  font-family: "Afacad Flux", sans-serif;
+  color:#4760d0;
+  font-size:30px;
+  position:absolute;
+  top:10px
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  
+  font-family: "Afacad Flux", sans-serif;
+}
+nav a {
+  color: rgb(8, 14, 65);
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav a:hover {
+  background-color: #8cbffa;
+  border-radius: 10px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+h2{
+font-size:50px
+}
+
+p{
+  position:absolute;
+  bottom:420px;
+  font-size:30px;
+  text-align: center;
+}
+
+button{
+  position:absolute;
+  bottom:350px;
+  color:#D9EAFD;
+ background-color:#4760d0;
+  padding: 10px 30px;
+  border-radius:20px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+button:hover{
+  background-color: #D9EAFD;
+  color:#4760d0;
+  scale:1.15;
+}
+
+.image-frame{
+  padding: 150px 550px;
+  background-color: #ffffff;
+  position:absolute;
+  bottom: 0px;
+  border-radius: 20px 20px 0 0;
+}
+
+.image-frame .img1{
+  width: 10%;
+  height: 30%;
+  position:absolute;
+  top:20px;
+  right:20px;
+}
+
+.image-frame .img2{
+  width: 20%;
+  height: 60%;
+  position:absolute;
+  left:20px;
+}
+
+.image-frame .img3{
+  width:20%;
+  height:60%;
+  position:absolute;
+  left:300px;
+}
+
+.image-frame .img4{
+  width:20%;
+  height:60%;
+  position:absolute;
+  left:550px;
+}
+
+.image-frame .img5{
+  width:20%;
+  height:60%;
+  position:absolute;
+  left:800px;
+}

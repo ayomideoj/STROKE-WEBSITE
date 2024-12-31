@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="test.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Stroke Prediction</h1>
+    </header>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="test.html">TEST</a>
+        <a href="counseling.html">COUNSELING</a>
+    </nav>
+    <div class="main-content">
+        <div class = "image">  
+            <img src="images/Medical.jpg" alt="Medical Illustration">
+        </div>
+
+        <div class= "test-form">
+         <form>
+        <label for ="Gender">Gender:</label>
+        <label for="Male">
+            <input type="radio" id="Male" name="gender" value="Male">
+            Male
+        </label>
+
+        <label for ="Female">
+            <input type="radio" id="Female" name="gender" value="Female">
+            Female
+        </label>
+
+          <label for="BMI">BMI(Range 15 - 45)</label>
+          <input type="text" id="BMI" name="BMI" required>
+          
+          <label for="glucose level">Glucose Level</label>
+          <input type="text" id="glucose level" name="glucose level" required>
+
+          <label for="question1">Do You Smoke?</label>
+          <input type="text" id="question1" name="question1" required>
+
+          <label for="question2">Have You Been Diagnosed With Hypertension?</label>
+          <input type="text" id="question2" name="question2" required>
+
+          <label for="question3">Do You Have Any Other Heart Diseases?</label>
+          <input type="text" id="question3" name="question3" required>
+
+          <div class="button-group">
+            <button onclick="submitTest()">Submit Test</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+        </form>
+        </div>
+
+      
+    </div>
+    <script>
+        function submitTest() {
+            alert('Processing Results.....');
+        }
+        function reset() {
+            alert('Inputs Reset');
+        }
+    </script>
+</body>
+</html>
