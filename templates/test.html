@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/static/test.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>Stroke Prediction</h1>
+    </header>
+    <nav>
+        <a href="http://127.0.0.1:5000">HOME</a>
+        <a href="http://127.0.0.1:5000/test">TEST</a>
+        <a href="counseling.html">COUNSELING</a>
+    </nav>
+    <div class="main-content">
+        <div class = "image">  
+            <img src="/images/Medical.jpg" alt="Medical Illustration">
+        </div>
+
+        <div class= "test-form">
+         <form action="/submit" method="POST" >
+            
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+          </select> 
+
+
+          <label for="age">How Old Are You?</label>
+          <input type="text" id="age" name="age" required>
+          
+          
+          <p>Do You Have Hypertension:</p>
+          <div class="radio-input1">
+            <label class="label">
+                <input type="radio" id="Yes" name="hypertension"  value="1"/>
+                <p class="text">Yes</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" id="No" name="hypertension"  value="0"/>
+                <p class="text">No</p>
+              </label>
+          </div>
+
+          
+          <p>Do You Have Any Heart Dieases:</p>
+          <div class="radio-input1">
+            <label class="label">
+                <input type="radio" id="Yes" name="heart_disease"  value="1"/>
+                <p class="text">Yes</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" id="No" name="heart_disease"  value="0"/>
+                <p class="text">No</p>
+              </label>
+          </div>
+
+          
+          <label for="ever_married">Are You Married?</label>
+          <select id="ever_married" name="ever_married">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+          <label for="work_type">What Is Your Work Type?</label>
+          <select id="work_type" name="work_type">
+            <option value="Govt_job">Government Job</option>
+            <option value="Never_worked">Never Worked</option>
+            <option value="Private">Private</option>
+            <option value="Self-employed">Self employed</option>
+            <option value="children">Children</option>
+        </select>
+          
+
+          <label for="Residence_type">What Is Your Residence Type?:</label>
+            <select id="Residence_type" name="Residence_type">
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+            </select>
+
+
+          <label for = "avg_glucose_level">What Is Your Glucose Level</label>
+          <input type = "text" id = "avg_glucose_level" name ="avg_glucose_level" required>   
+
+          
+          <label for="bmi">What Is Your BMI?</label>
+          <input type="text" id="bmi" name="bmi" required>
+
+          <label for="smoking_status">Are You A Smoker:</label>
+            <select id="smoking_status" name="smoking_status">
+                <option value="formerly smoked">Former smoker</option>
+                <option value="never smoked">No</option>
+                <option value="smokes">Yes</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
+
+
+          <div class="button-group">
+            <button type="submit">Submit Test</button>
+            <button type = "reset" onclick="document.getElementById('dataForm').reset()">Reset</button>
+        </div>
+
+        </form>
+
+        <div id="notification" style="display: none; margin-top: 20px; color: green;"></div>
+
+
+           
+        </div>
+
+        <p id="strokeResult" style="display: none;"></p>  <!-- Stroke risk result -->
+        <p id="dbConfirmation" style="display: none;"></p>  <!-- Data save confirmation -->
+        
+    </div>
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', async function (e) {
+            e.preventDefault(); // Prevent the page from reloading
+    
+            const formData = {
+                bmi: document.getElementById('bmi').value,
+                glucose_level: document.getElementById('glucose_level').value,
+                question1: document.getElementById('question1').value,
+                question2: document.getElementById('question2').value,
+                question3: document.getElementById('question3').value
+            };
+    
+            try {
+                const response = await fetch('http://localhost:3000/submit-to-flask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+    
+                const result = await response.json();
+    
+                // Get the result elements
+                const strokeResult = document.getElementById('strokeResult');
+                const dbConfirmation = document.getElementById('dbConfirmation');
+    
+                if (result.success) {
+                    // Display stroke prediction result
+                    strokeResult.style.display = 'block';
+                    strokeResult.style.color = 'blue';
+                    strokeResult.textContent = result.stroke_message;
+    
+                    // Display database confirmation message
+                    dbConfirmation.style.display = 'block';
+                    dbConfirmation.style.color = 'green';
+                    dbConfirmation.textContent = result.db_message;
+    
+                    // Clear the form after submission
+                    document.getElementById('dataForm').reset();
+                } else {
+                    strokeResult.style.display = 'block';
+                    strokeResult.style.color = 'red';
+                    strokeResult.textContent = 'Error: ' + result.error;
+                }
+            } catch (err) {
+                const strokeResult = document.getElementById('strokeResult');
+                strokeResult.style.display = 'block';
+                strokeResult.style.color = 'red';
+                strokeResult.textContent = 'An error occurred while submitting.';
+            }
+        });
+    </script>
+    
+</body>
+</html>

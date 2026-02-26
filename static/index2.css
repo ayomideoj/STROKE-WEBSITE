@@ -1,0 +1,387 @@
+
+
+/*Resets across all browsers for uniform ui design*/
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+  article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;}
+
+body{
+  line-height: 1;
+}
+
+ul{
+  list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+	blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+	-webkit-text-size-adjust: none;
+}
+
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input, select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+
+/*Body design*/
+@-ms-viewport {
+		width: device-width;
+	}
+
+	html {
+		box-sizing: border-box;
+	}
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+  body {
+		background: linear-gradient(to bottom, #F8FAFC 20%,#D9EAFD 30%,#8998db 80%);
+    background-size: 100%, 100%;
+    height: 100vh; /*might remove later*/
+		font-family: "Afacad Flux", sans-serif;
+		font-weight: 300;
+		color: #52575c;
+		line-height: 1.75em;
+		font-size: 20pt;
+	}
+
+        /*This section handles any ugly animation that may show while the website is loading, making all the ui load uniformly*/
+  	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+			-moz-animation: none !important;
+			-webkit-animation: none !important;
+			-ms-animation: none !important;
+			animation: none !important;
+			-moz-transition: none !important;
+			-webkit-transition: none !important;
+			-ms-transition: none !important;
+			transition: none !important;
+		}
+
+    	input, textarea, select {
+		font-family: "Afacad Flux", sans-serif;
+		font-weight: 300;
+		color: #52575c;
+		line-height: 1.75em;
+		font-size: 25pt;
+	}
+
+   h2, h3, h4, h5, h6 {
+		font-weight: 300;
+		color: #52575c;
+	}
+
+ h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	h1{
+		position: absolute;
+		text-align: left;
+  	margin-left: 0;
+		font-size: 40px;
+		font-weight: 300;
+		color:#4760d0
+	}
+
+  h2 {
+		font-size: 40px;
+		line-height: 1.25em;
+		position:absolute;
+		left:670px;
+		top:150px;
+		text-align:center
+
+	}
+	.wrapper h2{
+		text-align: center;
+		left:340px;
+		top:80px;
+		font-size: 40px
+	}
+
+
+	p{
+		position: absolute;
+		top:220px;
+		text-align: center;
+		left:380px
+	}
+
+a {
+		-moz-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-ms-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		color: inherit;
+		text-decoration: none;
+		border-bottom: 1px #0084ff; /*might remove later*/
+	}
+
+
+
+h1, a:hover{
+	color: #4760d0;
+}
+    
+strong{
+  font-weight: bold
+}
+
+
+
+	.image {
+		-moz-transition: opacity 0.25s ease-in-out;
+		-webkit-transition: opacity 0.25s ease-in-out;
+		-ms-transition: opacity 0.25s ease-in-out;
+		transition: opacity 0.25s ease-in-out;
+		display: inline-block;
+		outline: 0;
+		border: 0;
+	}
+
+		.image img {
+			display: block;
+			width: 100%;
+		}
+
+		.image.fit {
+			display: block;
+			width: 100%;
+		}
+
+		.image.featured {
+			display: block;
+			width: 20%;
+			margin: 0 0 3em 0;
+		}
+
+		.image.left {
+			float: left;
+			margin: 0 2em 2em 0;
+		}
+
+		.image.centered {
+			display: block;
+			margin: 0 0 3em 0;
+		}
+
+			.image.centered img {
+				margin: 0 auto;
+				width: auto;
+			}
+
+	a.image:hover {
+		opacity: 0.85;
+	}
+
+		input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	button,
+	.button {
+		-moz-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-ms-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		display: inline-block;
+		color: inherit;
+		background: #4760d0;
+		text-decoration: none;
+		border: solid 2px #2f3b44;
+		border-radius: 5em;
+		padding: 0.4em 1em 0.4em 1em;
+		cursor: pointer;
+		outline: 0;
+		
+		
+	}
+
+		input[type="button"]:hover,
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		button:hover,
+		.button:hover {
+			color: #4760d0;
+			border-color: #4760d0;
+			padding: 0.6em 1.2em 0.6em 1.2em;
+			background-color: #D9EAFD
+		}
+		button, .button {
+  white-space: nowrap; /* keeps text in one line */
+}
+
+
+		section.container .button{
+			position: absolute;
+			top:350px;
+			left:670px
+		}
+
+		ul.actions .button{
+			position: absolute;
+			font-size: 25px;
+			padding: 0.6em 0.6em 0.6em 0.6em;
+			left:650px;
+			top:500px
+
+		}
+
+	.wrapper {
+		position: absolute;
+		background: #fff url("/assets/css/images/image-wrapper.svg");
+		overflow-x: hidden;
+		width: 99vw;
+		height: 80vh;
+		border-radius: 50px 50px 0px 0px;
+		top:500px;
+		
+	}
+
+	.image-wrapper {
+		position: relative;
+	}
+
+		.image-wrapper.first .image {
+			position: absolute;
+			left: 1100px;
+			top:200px;
+			z-index: 2;
+			opacity: 0.7
+		}
+
+		.image-wrapper.first:before {
+			content: '';
+			display: block;
+			width: 2000%;
+			height: 100%;
+			position: absolute;
+			left: -2000%;
+			top: 0;
+			z-index: 1;
+			box-shadow: inset 0px 0px 0px 1px #e8e8e8;
+			background: #f6f8fb url("images/image-wrapper.svg");
+		}
+
+		.image-wrapper.second .image {
+			position: absolute;
+			left: 600px;
+			top:200px;
+			z-index: 2;
+			opacity: 0.7
+		}
+
+			.image-wrapper.second:before {
+			content: '';
+			display: block;
+			width: 2000%;
+			height: 100%;
+			position: absolute;
+			left: -2000%;
+			top: 0;
+			z-index: 1;
+			box-shadow: inset 0px 0px 0px 1px #e8e8e8;
+			background: #f6f8fb url("images/image-wrapper.svg");
+		}
+
+
+			.image-wrapper.third .image {
+			position: absolute;
+			left: 100px;
+			top:200px;
+			z-index: 2;
+			opacity: 0.7
+		}
+
+		.image-wrapper.third:before {
+			content: '';
+			display: block;
+			width: 2000%;
+			height: 100%;
+			position: absolute;
+			left: -2000%;
+			top: 0;
+			z-index: 1;
+			box-shadow: inset 0px 0px 0px 1px #e8e8e8;
+			background: #f6f8fb url("images/image-wrapper.svg");
+		}
+
+
+
+
+			#logo {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 20px;
+		width: 15em;
+		margin-left: 0;
+	}
+
+
+	nav{
+		display: flex;
+  justify-content: center;
+  
+  font-family: "Afacad Flux", sans-serif;
+	}
+
+	nav a {
+  color: rgb(8, 14, 65);
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav a:hover {
+  background-color: #8cbffa;
+  border-radius: 10px;
+}
+

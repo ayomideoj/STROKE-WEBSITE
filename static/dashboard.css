@@ -1,0 +1,137 @@
+/* File: static/dashboard.css */
+
+/* Your index2.css uses lots of absolute positioning for h2/p/buttons.
+   For the dashboard we need normal document flow.
+   So we scope overrides to dashboard-only areas. */
+
+.dash-header {
+  /* keep your gradient body scheme in the header area too */
+  padding-bottom: 18px;
+}
+
+/* prevent index2.css absolute positioning breaking dashboard hero text */
+.dash-hero header,
+.dash-hero h2,
+.dash-hero p {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+/* a proper hero layout */
+.dash-hero {
+  padding: 22px 0 26px;
+}
+
+.dash-title {
+  font-size: 44px;
+  line-height: 1.15;
+  color: #4760d0; /* your primary accent */
+  font-weight: 300;
+}
+
+.dash-subtitle {
+  margin-top: 10px !important;
+  max-width: 70ch;
+  color: #52575c;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* action button row */
+.dash-actions {
+  margin-top: 18px;
+}
+
+/* prevent index2.css from forcing absolute positioning of section.container .button */
+.dash-actions .button {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+/* main dashboard wrapper */
+.dash-wrapper {
+  padding: 26px 0 60px;
+}
+
+/* grid of charts */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+/* cards */
+.dash-card {
+  grid-column: span 12;
+  background: rgba(248, 250, 252, 0.65); /* matches your light scheme */
+  border: 1px solid rgba(71, 96, 208, 0.18); /* subtle accent border */
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(8, 14, 65, 0.08);
+}
+
+@media (min-width: 900px) {
+  .dash-card {
+    grid-column: span 6;
+  }
+
+  .dash-card--full {
+    grid-column: span 12;
+  }
+}
+
+/* headings */
+.dash-card__head {
+  padding: 18px 18px 10px;
+}
+
+.dash-card__head h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  color: rgb(8, 14, 65); /* matches your nav text */
+}
+
+.dash-card__head p {
+  margin-top: 8px;
+  color: #52575c;
+  font-size: 16px;
+}
+
+/* image */
+.dash-card__body {
+  padding: 14px 18px 18px;
+}
+
+.dash-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+}
+
+/* footer note */
+.dash-footer {
+  margin-top: 18px;
+}
+
+.dash-footer p {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  text-align: left !important;
+  color: #52575c;
+  font-size: 15px;
+  margin: 0 !important;
+}
+
+/* Make sure nav hover still works, but keep spacing tidy on dashboard */
+.dash-topbar nav a {
+  font-size: 18px;
+}

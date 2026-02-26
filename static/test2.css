@@ -1,0 +1,220 @@
+html, body, div, span, applet, object,
+iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite,
+code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b,
+u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby,
+section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;}
+
+  article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;}
+
+body{
+  line-height: 1;
+}
+
+ul{
+  list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+	blockquote:before, blockquote:after, q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+  body {
+	-webkit-text-size-adjust: none;
+}
+
+mark {
+	background-color: transparent;
+	color: inherit;
+}
+
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input, select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+/*Body design*/
+@-ms-viewport {
+		width: device-width;
+	}
+
+	html {
+		box-sizing: border-box;
+	}
+
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+  body {
+		background: linear-gradient(to bottom, #F8FAFC 10%,#74a8e3 40%,#8998db 90%);
+    background-size: 100%, 100%;
+    height: 250vh; /*might remove later*/
+		font-family: "Afacad Flux", sans-serif;
+		font-weight: 300;
+		color: #52575c;
+		line-height: 1.75em;
+		font-size: 20pt;
+	}
+
+      /*This section handles any ugly animation that may show while the website is loading, making all the ui load uniformly*/
+  	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+			-moz-animation: none !important;
+			-webkit-animation: none !important;
+			-ms-animation: none !important;
+			animation: none !important;
+			-moz-transition: none !important;
+			-webkit-transition: none !important;
+			-ms-transition: none !important;
+			transition: none !important;
+		}
+
+
+
+	h1{
+		position: absolute;
+		text-align: left;
+  	margin-left: 0;
+		font-size: 40px;
+		font-weight: 300;
+		color:#4760d0
+	}
+
+  a {
+		-moz-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		-ms-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+		color: inherit;
+		text-decoration: none;
+		border-bottom: 1px #0084ff; /*might remove later*/
+	}
+
+
+
+h1, a:hover{
+	color: #4760d0;
+}
+
+strong{
+  font-weight: bold
+}
+   
+	#logo {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 20px;
+		width: 15em;
+		margin-left: 0;
+	}
+
+
+nav{
+		display: flex;
+  justify-content: center;
+  
+  font-family: "Afacad Flux", sans-serif;
+	}
+
+	nav a {
+  color: rgb(8, 14, 65);
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav a:hover {
+  background-color: #8cbffa;
+  border-radius: 10px;
+}
+
+form{
+  position: absolute;
+  top:200px;
+  max-width: 800px;   /* Keeps it from being too wide */
+  margin: 50px auto;  /* Center horizontally with space at top */
+  padding: 20px;
+  background: #d5e2fd; /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: "Afacad Flux", sans-serif;
+
+}
+
+form label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 15px;
+  color: #333;
+}
+
+form input[type="text"],
+form select,
+form textarea {
+  width: 100%;              /* Full width inside container */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-bottom: 15px;      /* Space between fields */
+  transition: border-color 0.3s;
+  font-family: "Afacad Flux", sans-serif;
+  opacity:0.5
+}
+
+h2{
+  position:absolute;
+  left:500px;
+  top:200px;
+}
+
+p{
+  position:absolute;
+  left:500px;
+  top:400px;
+}
+
+	button {
+		background: #4760d0;
+		color:#52575c;
+		border-radius: 5em;
+		padding: 0.6em 2em 0.6em 2em;
+		outline: 0;
+		border: solid 2px #2f3b44;
+		text-decoration: none;
+		font-style: inherit;
+		cursor:pointer
+	}
+
+
+	button:hover{
+			background-color: #D9EAFD
+
+	}

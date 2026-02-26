@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stroke Prediction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css"/>
+
+</head>
+<body>
+  <header>
+    <h1><strong>Stroke</strong></h1>
+    <h2>PREDICTION</h2>
+</header>
+  <!-- Navigation Bar Structure -->
+<nav>
+    <a href="http://127.0.0.1:5000">HOME</a>
+    <a href="test.html">TEST</a>
+    <a href="counseling">DASHBOARD</a>
+</nav>
+
+<div class="main-content">
+  <h2>WELCOME</h2>
+  <p>
+  <strong>TRACK</strong>, <strong>ANALYZE</strong> and <strong>MONITOR</strong> your likelyhood of experiencing a stroke <br/>with a 98% succession rate.
+  </p>
+
+  <button><strong>Begin Test</strong></button>
+
+
+  <div class="image-frame">
+    
+      <img src= "{{ url_for('static', filename='meh.jpeg') }}"class="img1">
+
+      <img src="/images/stem chart.gif" class="img2">
+
+      <img src="/images/barchart1.jpeg" class="img3">
+
+      <img src="/images/ui-ux.gif" class="img4">
+
+      <img src="/images/root.jpeg" class="img5">
+  
+    </div>
+</div>
+
+
+</body>
+</html>
