@@ -1,137 +1,191 @@
-/* File: static/dashboard.css */
+/* ============================================================
+   dashboard.css  —  fully self-contained, no index2.css needed
+   ============================================================ */
 
-/* Your index2.css uses lots of absolute positioning for h2/p/buttons.
-   For the dashboard we need normal document flow.
-   So we scope overrides to dashboard-only areas. */
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-.dash-header {
-  /* keep your gradient body scheme in the header area too */
-  padding-bottom: 18px;
-}
+html { font-size: 100%; }
 
-/* prevent index2.css absolute positioning breaking dashboard hero text */
-.dash-hero header,
-.dash-hero h2,
-.dash-hero p {
-  position: static !important;
-  left: auto !important;
-  top: auto !important;
-  text-align: left !important;
-  margin: 0 !important;
-}
-
-/* a proper hero layout */
-.dash-hero {
-  padding: 22px 0 26px;
-}
-
-.dash-title {
-  font-size: 44px;
-  line-height: 1.15;
-  color: #4760d0; /* your primary accent */
+body {
+  font-family: "Afacad Flux", sans-serif;
   font-weight: 300;
-}
-
-.dash-subtitle {
-  margin-top: 10px !important;
-  max-width: 70ch;
   color: #52575c;
-  font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.75;
+  background: linear-gradient(to bottom, #F8FAFC 10%, #D9EAFD 40%, #8998db 90%);
+  min-height: 100vh;
 }
 
-/* action button row */
-.dash-actions {
-  margin-top: 18px;
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-/* prevent index2.css from forcing absolute positioning of section.container .button */
-.dash-actions .button {
-  position: static !important;
-  left: auto !important;
-  top: auto !important;
+strong { font-weight: 700; }
+
+/* ---- Header ---- */
+.page-header {
+  padding: 0 40px;
 }
 
-/* main dashboard wrapper */
-.dash-wrapper {
-  padding: 26px 0 60px;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0 12px;
 }
 
-/* grid of charts */
-.dash-grid {
+.logo {
+  font-size: 22px;
+  font-weight: 300;
+  color: #4760d0;
+  line-height: 1.2;
+}
+
+.logo a { color: #4760d0; }
+.logo a:hover { color: #2f3b44; }
+
+nav {
+  display: flex;
+  gap: 4px;
+}
+
+nav a {
+  font-size: 16px;
+  color: rgb(8, 14, 65);
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+nav a:hover {
+  background: #8cbffa55;
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding: 40px 40px 48px;
+}
+
+.hero-inner {
+  max-width: 680px;
+}
+
+.hero-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #4760d0;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 300;
+  color: #4760d0;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: #52575c;
+  line-height: 1.7;
+  max-width: 55ch;
+  margin-bottom: 24px;
+}
+
+/* ---- Button ---- */
+.btn {
+  display: inline-block;
+  background: #4760d0;
+  color: #fff;
+  border: 2px solid #4760d0;
+  border-radius: 5em;
+  padding: 0.45em 1.4em;
+  font-size: 16px;
+  font-family: "Afacad Flux", sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #D9EAFD;
+  color: #4760d0;
+}
+
+/* ---- Main content ---- */
+.main {
+  background: #fff;
+  border-radius: 40px 40px 0 0;
+  padding: 48px 0 80px;
+  min-height: 60vh;
+}
+
+.main-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ---- Chart grid ---- */
+.grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
-/* cards */
-.dash-card {
-  grid-column: span 12;
-  background: rgba(248, 250, 252, 0.65); /* matches your light scheme */
-  border: 1px solid rgba(71, 96, 208, 0.18); /* subtle accent border */
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+  .page-header, .hero, .main-inner { padding-left: 20px; padding-right: 20px; }
+}
+
+/* ---- Cards ---- */
+.card {
+  background: #f8fafc;
+  border: 1px solid rgba(71, 96, 208, 0.15);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(8, 14, 65, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 900px) {
-  .dash-card {
-    grid-column: span 6;
-  }
-
-  .dash-card--full {
-    grid-column: span 12;
-  }
+.card--full {
+  grid-column: 1 / -1;
 }
 
-/* headings */
-.dash-card__head {
-  padding: 18px 18px 10px;
+.card-head {
+  padding: 20px 22px 14px;
+  border-bottom: 1px solid rgba(71, 96, 208, 0.1);
 }
 
-.dash-card__head h3 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 300;
-  color: rgb(8, 14, 65); /* matches your nav text */
+.card-head h3 {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(8, 14, 65);
+  margin-bottom: 4px;
 }
 
-.dash-card__head p {
-  margin-top: 8px;
-  color: #52575c;
-  font-size: 16px;
+.card-head p {
+  font-size: 14px;
+  color: #7a8290;
+  line-height: 1.5;
 }
 
-/* image */
-.dash-card__body {
-  padding: 14px 18px 18px;
+.card-body {
+  padding: 18px 22px 22px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dash-img {
+.card-body img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: white;
-}
-
-/* footer note */
-.dash-footer {
-  margin-top: 18px;
-}
-
-.dash-footer p {
-  position: static !important;
-  left: auto !important;
-  top: auto !important;
-  text-align: left !important;
-  color: #52575c;
-  font-size: 15px;
-  margin: 0 !important;
-}
-
-/* Make sure nav hover still works, but keep spacing tidy on dashboard */
-.dash-topbar nav a {
-  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #fff;
 }

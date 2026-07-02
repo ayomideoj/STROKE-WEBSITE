@@ -1,128 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | Stroke Prediction</title>
 
-  <!-- Same font as index2 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 
-  <!-- Your existing theme -->
-  <link rel="stylesheet" href="/static/index2.css"/>
-
-  <!-- Dashboard layout additions -->
   <link rel="stylesheet" href="/static/dashboard.css"/>
 </head>
 
 <body>
 
-  <!-- Header section (uses your existing #header-wrapper + #logo + nav styles) -->
-  <div id="header-wrapper" class="dash-header">
-    <div id="header" class="container dash-topbar">
-
-      <h1 id="logo">
-        <a href="/"><strong>STROKE</strong><br/>Prediction</a>
-      </h1>
-
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-inner">
+      <h1 class="logo"><a href="/index2.html"><strong>STROKE</strong><br>Prediction</a></h1>
       <nav>
         <a href="/test2.html">TEST</a>
         <a href="/dashboard.html">DASHBOARD</a>
       </nav>
-
     </div>
-
-    <section class="container dash-hero">
-      <header>
-        <h2 class="dash-title"><strong>DASHBOARD</strong></h2>
-      </header>
-
-      <p class="dash-subtitle">
-        Visualizations generated during Exploratory Data Analysis (EDA) and Model Evaluation.
-      </p>
-
-      <div class="dash-actions">
-        <a class="button" href="/test2.html">Run a new prediction</a>
-      </div>
-    </section>
   </div>
 
-  <!-- Main dashboard content -->
-  <main class="dash-wrapper">
-    <div class="container">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">ANALYTICS</p>
+      <h2 class="hero-title"><strong>DASHBOARD</strong></h2>
+      <p class="hero-sub">Visualizations from Exploratory Data Analysis and Model Evaluation.</p>
+      <a class="btn" href="/test2.html">Run a new prediction</a>
+    </div>
+  </div>
 
-      <section class="dash-grid">
+  <!-- Chart Grid -->
+  <main class="main">
+    <div class="main-inner">
 
-        <article class="dash-card">
-          <div class="dash-card__head">
-            <h3>Pre Target Distribution</h3>
-            <p>The class distribution before balancing techiques were implemented.</p>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-head">
+            <h3>Pre target distribution</h3>
+            <p>Class distribution before balancing techniques were applied.</p>
           </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/images/pre target distribution.png" alt="Target distribution plot">
+          <div class="card-body">
+            <img src="/static/images/pre target distribution.png" alt="Pre target distribution plot">
           </div>
         </article>
 
-        <article class="dash-card">
-          <div class="dash-card__head">
-            <h3>Post Target Distribution</h3>
-            <p>The class distribution after balancing.</p>
+        <article class="card">
+          <div class="card-head">
+            <h3>Post target distribution</h3>
+            <p>Class distribution after balancing was applied.</p>
           </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/images/post target distribution.png" alt="Target distribution plot">
-          </div>
-        </article>
-
-        <article class="dash-card">
-          <div class="dash-card__head">
-            <h3>Correlation Heatmap</h3>
-            <p>Correlation between numeric features (helps spot relationships).</p>
-          </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/static/images/correlation_heatmap.png" alt="Correlation heatmap">
+          <div class="card-body">
+            <img src="/static/images/post target distribution.png" alt="Post target distribution plot">
           </div>
         </article>
 
-        <article class="dash-card">
-          <div class="dash-card__head">
-            <h3>Confusion Matrix</h3>
-            <p>How many predictions were correct vs incorrect.</p>
+        <article class="card">
+          <div class="card-head">
+            <h3>Correlation heatmap</h3>
+            <p>Correlation between numeric features — highlights key relationships.</p>
           </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/static/images/confusion_matrix.png" alt="Confusion matrix">
-          </div>
-        </article>
-
-        <article class="dash-card">
-          <div class="dash-card__head">
-            <h3>ROC Curve</h3>
-            <p>Model discrimination ability across different thresholds.</p>
-          </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/static/images/roc_curve.png" alt="ROC curve">
+          <div class="card-body">
+            <img src="/static/images/correlation_heatmap.png" alt="Correlation heatmap">
           </div>
         </article>
 
-        <article class="dash-card dash-card--full">
-          <div class="dash-card__head">
-            <h3>Feature Importance</h3>
-            <p>Which features contributed most to the model’s decision.</p>
+        <article class="card">
+          <div class="card-head">
+            <h3>Confusion matrix</h3>
+            <p>Correct vs incorrect predictions made by the model.</p>
           </div>
-          <div class="dash-card__body">
-            <img class="dash-img" src="/static/images/feature_importance.png" alt="Feature importance">
+          <div class="card-body">
+            <img src="/static/images/confusion_matrix.png" alt="Confusion matrix">
           </div>
         </article>
 
-      </section>
+        <article class="card">
+          <div class="card-head">
+            <h3>ROC curve</h3>
+            <p>Model discrimination ability across classification thresholds.</p>
+          </div>
+          <div class="card-body">
+            <img src="/static/images/roc_curve.png" alt="ROC curve">
+          </div>
+        </article>
 
-      <footer class="dash-footer">
-        <p>
-          Tip: If a chart doesn’t show, check the filename in <strong>/static/images/</strong>
-          matches the <code>src</code> in this file.
-        </p>
-      </footer>
+        <article class="card card--full">
+          <div class="card-head">
+            <h3>Feature importance</h3>
+            <p>Which input features contributed most to the model's predictions.</p>
+          </div>
+          <div class="card-body">
+            <img src="/static/images/feature_importance.png" alt="Feature importance chart">
+          </div>
+        </article>
+
+      </div>
 
     </div>
   </main>

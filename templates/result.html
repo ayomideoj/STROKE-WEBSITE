@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Result</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/result.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="header" class="container">
+    <h1 id="logo"><a href="/index2.html"><strong>STROKE</strong><br>Prediction</a></h1>
+    <nav>
+      <a href="/test2.html">TEST</a>
+      <a href="/dashboard.html">DASHBOARD</a>
+    </nav>
+  </div>
+
+  <!-- Result Section -->
+  <div class="result-wrapper">
+
+    <!-- Result Card -->
+    <div class="result-card {{ 'stroke' if prediction == 'Stroke' else 'no-stroke' }}">
+
+      <div class="result-icon">
+        {% if prediction == "Stroke" %}
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="3"/>
+            <line x1="32" y1="18" x2="32" y2="36" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="45" r="3" fill="currentColor"/>
+          </svg>
+        {% else %}
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="3"/>
+            <polyline points="20,33 28,42 46,22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        {% endif %}
+      </div>
+
+      <div class="result-label">PREDICTION RESULT</div>
+
+      <h2 class="result-title">
+        {% if prediction == "Stroke" %}
+          High Stroke Risk Detected
+        {% else %}
+          Low Stroke Risk Detected
+        {% endif %}
+      </h2>
+
+      <p class="result-description">
+        {% if prediction == "Stroke" %}
+          Based on the medical data you provided, our model has identified indicators associated with a higher likelihood of stroke. This is not a medical diagnosis — please consult a qualified healthcare professional as soon as possible.
+        {% else %}
+          Based on the medical data you provided, our model has not detected significant stroke risk indicators. Continue maintaining a healthy lifestyle and consult your doctor regularly.
+        {% endif %}
+      </p>
+
+      <!-- Summary of inputs -->
+      <div class="data-summary">
+        <h3>Your Submitted Data</h3>
+        <div class="data-grid">
+          <div class="data-item"><span class="data-label">Gender</span><span class="data-value">{{ form_data.get('gender', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Age</span><span class="data-value">{{ form_data.get('age', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Hypertension</span><span class="data-value">{{ 'Yes' if form_data.get('hypertension') == '1' else 'No' }}</span></div>
+          <div class="data-item"><span class="data-label">Heart Disease</span><span class="data-value">{{ 'Yes' if form_data.get('heart_disease') == '1' else 'No' }}</span></div>
+          <div class="data-item"><span class="data-label">Married</span><span class="data-value">{{ form_data.get('ever_married', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Work Type</span><span class="data-value">{{ form_data.get('work_type', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Residence</span><span class="data-value">{{ form_data.get('Residence_type', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Glucose Level</span><span class="data-value">{{ form_data.get('avg_glucose_level', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">BMI</span><span class="data-value">{{ form_data.get('bmi', 'N/A') }}</span></div>
+          <div class="data-item"><span class="data-label">Smoking Status</span><span class="data-value">{{ form_data.get('smoking_status', 'N/A') }}</span></div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        ⚠️ This tool is for informational purposes only and is <strong>not a substitute for professional medical advice</strong>. Always consult a licensed physician for medical decisions.
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a href="/test2.html" class="button retake">Retake Test</a>
+        <a href="/index2.html" class="button home">Go Home</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
